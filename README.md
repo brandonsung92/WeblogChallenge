@@ -1,3 +1,30 @@
+# Information
+This is my submission of the interview challenge for Paytm Labs. I am working in Ubuntu16.04.
+
+Prerequisites:
+* sbt installed
+* Spark installed (I used 2.4.5)
+
+To run:
+1. From root of project:
+```
+sbt package
+```
+2. Assuming spark-submit is in PATH:
+```
+spark-submit target/scala-2.11/weblogchallenge_2.11-1.0.jar \
+  data/2015_07_22_mktplace_shop_web_log_sample.log.gz \
+  output
+```
+
+Expect three directories directory called "output":
+* session_level_data
+* average_session_length
+* session_lengths_by_client_ip
+There should be parquet files in all three directories
+
+Original README.md below
+
 # WeblogChallenge
 This is an interview challenge for Paytm Labs. Please feel free to fork. Pull Requests will be ignored.
 
