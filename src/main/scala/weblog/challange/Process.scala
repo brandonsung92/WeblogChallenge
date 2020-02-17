@@ -3,7 +3,6 @@ import org.apache.spark.sql.{SparkSession, DataFrame}
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.functions._
-import java.io.File
 
 object Process {
   val schema = StructType(

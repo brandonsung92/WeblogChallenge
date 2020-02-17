@@ -12,9 +12,11 @@ sbt package
 ```
 2. Assuming spark-submit is in PATH:
 ```
-spark-submit target/scala-2.11/weblogchallenge_2.11-1.0.jar \
+spark-submit \
+  --class weblog.challenge.Process \
+  target/scala-2.11/weblogchallenge_2.11-1.0.jar \
   data/2015_07_22_mktplace_shop_web_log_sample.log.gz \
-  output
+  <output directory location>
 ```
 
 Expect three directories directory called "output":
@@ -22,6 +24,14 @@ Expect three directories directory called "output":
 * average_session_length
 * session_lengths_by_client_ip
 There should be parquet files in all three directories
+
+I've written a small Spark job to show some of the data that was generated:
+```
+spark-submit \
+  --class weblog.challenge.ShowOutputs \
+  target/scala-2.11/weblogchallenge_2.11-1.0.jar \
+  <output directory location>
+```
 
 Original README.md below
 
